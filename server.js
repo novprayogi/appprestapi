@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// panggil routes
+// panggil routes (alurnya routes <- controller <- res)
 var routes = require("./routes");
 routes(app);
 
