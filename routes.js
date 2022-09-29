@@ -7,6 +7,6 @@ module.exports = function (app) {
 
   // alurnya buat koneksi ke db pake koneksi.js kemudian buat controller untuk menghubungkn setelahnya di init di routes
   app.route("/tampilmhs").get(jsonku.tampilsemuamahasiswa);
-
   app.route("/tampilmhs/:id").get(jsonku.tampilidmahasiswa);
+  app.route("/create").post(jsonku.tambahMahasiswa);
 };
