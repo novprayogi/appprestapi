@@ -13,4 +13,4 @@ conn.connect((err) => {
   console.log("Mysql Berhasil Terhubung");
 });
 
-module.export = conn;
+module.exports = conn;
