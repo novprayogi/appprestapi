@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/novprayogi/apprestapi/issues"
   },
-  "homepage": "https://github.com/novprayogi/apprestapi#readme"
+  "homepage": "https://github.com/novprayogi/apprestapi#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
 }
