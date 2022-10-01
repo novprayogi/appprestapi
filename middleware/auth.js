@@ -101,3 +101,8 @@ exports.login = function (req, res) {
     }
   });
 };
+
+// controller cek halaman
+exports.cekhalaman = function (req, res) {
+  response.ok("Halaman ini untuk mengecek jika rolenya adalah 2");
+};
