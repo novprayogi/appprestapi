@@ -13,11 +13,11 @@ exports.registrasi = function (req, res) {
     email: req.body.email,
     password: md5(req.body.password),
     role: req.body.role,
-    tanggal_daftar: new Date(),
+    tanggal_daftar: req.body.tanggal_daftar,
   };
-
-  var query = "SELECT email from ?? where ??";
-  var table = ["users", "email", post.email];
+  //fungsi ? untuk memberi petik (') dan ?? untuk memberi petik (`)
+  var query = "SELECT ?? from ?? where ??=?";
+  var table = ["email", "users", "email", post.email];
 
   query = mysql.format(query, table);
 
@@ -25,11 +25,16 @@ exports.registrasi = function (req, res) {
     if (error) {
       console.log(error);
     } else {
+      var keys = Object.keys(post);
+      console.log(keys[0]);
       if (rows.length == 0) {
-        var query = "INSERT into ?? SET ??";
-        var table = ["users"];
+        var query = "INSERT into ?? (username,email,password,role,tanggal_daftar) VALUES (?)";
+        // var query = "INSERT into ?? SET ??";
+        var table = ["users", [post.username, post.email, post.password, post.role, post.tanggal_daftar]];
+        // var table = ["users"];
+
         query = mysql.format(query, table);
-        connetion.query(query, post, function (error, rows, fields) {
+        connetion.query(query, function (error, rows) {
           if (error) {
             console.log(error);
           } else {
