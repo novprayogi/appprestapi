@@ -12,4 +12,7 @@ module.exports = function (app) {
   app.route("/create").post(jsonku.tambahMahasiswa);
   app.route("/edit").put(jsonku.ubahMahasiswa);
   app.route("/delete").delete(jsonku.hapusMahasiswa);
+
+  // menampilkan group dalam routes
+  app.route("/tampilmatakuliah").get(jsonku.tampilGroupMatakuliah);
 };
